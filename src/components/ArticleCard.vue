@@ -119,13 +119,14 @@
           <v-img class="white--text align-end" height="200px" src="../../public/img/IMG_8678.jpg">
             <v-card-title class="title">花見小路通</v-card-title>
           </v-img>
-          
+
           <v-card-subtitle class="pb-0">2018年7月26日</v-card-subtitle>
-      
+
           <v-card-text class="text--primary">
             <div class="name">ゲーム:千恋*万花 序盤共通ルート</div>
             <div>京阪電車祇園四条駅から徒歩3分</div>
           </v-card-text>
+          <SenrenBanka3 ref="dialog8"></SenrenBanka3>
         </v-card>
       </v-col>
   
@@ -155,6 +156,7 @@
   import HibikeEuphonium2 from "./HibikeEuphonium2";
   import SenrenBanka1 from "./SenrenBanka1";
   import SenrenBanka2 from "./SenrenBanka2";
+  import SenrenBanka3 from "./SenrenBanka3";
   export default {
     name: "ArticleCard",
     methods: {
@@ -179,8 +181,12 @@
       show7() {
         this.$refs.dialog7.open();
       },
+      show8() {
+        this.$refs.dialog8.open();
+      },
     },
     components: {
+      SenrenBanka3,
       SenrenBanka2,
       SenrenBanka1,
       HibikeEuphonium2,
