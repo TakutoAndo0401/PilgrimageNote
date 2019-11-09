@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-row justify="center">
+    <v-row justify="center" style="margin: 0">
       <v-col>
         <v-card class="card" elevation=20 slot="activator" @click="show1()">
           <v-img class="white--text align-end" height="200px" src="../../public/img/EIVi2hOXYAEyylZ.jpeg">
