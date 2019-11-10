@@ -108,12 +108,12 @@
       
           <v-card-text class="text--primary">
             <div class="name">ゲーム:千恋*万花 常陸茉子と鮎を食べる場所など多数</div>
-            <div>京阪電車祇園四条駅から徒歩20分。付近には清水寺がある</div>
+            <div>京阪電車祇園四条駅から徒歩20分</div>
           </v-card-text>
           <SenrenBanka2 ref="dialog7"></SenrenBanka2>
         </v-card>
       </v-col>
-  
+
       <v-col>
         <v-card class="card" elevation=20 slot="activator" @click="show8()">
           <v-img class="white--text align-end" height="200px" src="../../public/img/IMG_8678.jpg">
@@ -203,6 +203,7 @@
     max-width: 400px;
     max-height: 320px;
     margin: 0 auto;
+    ovarflow-y: hidden;
   }
   
   .title {
