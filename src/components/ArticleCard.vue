@@ -194,6 +194,21 @@
       Saekano3,
       Saekano1,
       Saekano2,
+    },
+
+    data: function() {
+      return {
+        articles: [
+          {
+            show: 'show1()',
+            image: '../../public/img/EIVi2hOXYAEyylZ.jpeg',
+            title: 'のぞき坂',
+            data: '2019年11月1日',
+            name: 'アニメ:冴えない彼女の育てかたOPなど',
+            place: '都電荒川線学習院下駅、東京メトロ副都心線雑司が谷駅3番出口から徒歩2分程度',
+          },
+        ]
+      };
     }
   }
 </script>

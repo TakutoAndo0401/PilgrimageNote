@@ -38,7 +38,7 @@
         this.dialog2 = true;
       },
       close() {
-        this.dialog2 = false;
+        this.dialog2 = false;2
       }
     }
   }
