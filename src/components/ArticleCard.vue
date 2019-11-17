@@ -1,150 +1,29 @@
 <template>
   <v-app>
     <v-row justify="center" style="margin: 0">
-      <v-col>
-        <v-card class="card" elevation=20 slot="activator" @click="show1()">
-          <v-img class="white--text align-end" height="200px" src="../../public/img/EIVi2hOXYAEyylZ.jpeg">
-            <v-card-title class="title">のぞき坂</v-card-title>
+      <v-col v-for="(article, index) in articles" :key="index">
+        <v-card class="card" elevation=20 slot="activator" @click="article.show">
+          <v-img class="white--text align-end" height="200px" v-bind:src="article.image" alt="">
+            <v-card-title class="title">{{ article.title }}</v-card-title>
           </v-img>
-          
-          <v-card-subtitle class="pb-0">2019年11月1日</v-card-subtitle>
-          
+          <v-card-subtitle class="pb-0">{{ article.date }}</v-card-subtitle>
           <v-card-text class="text--primary">
-            <div class="name">アニメ:冴えない彼女の育てかたOPなど</div>
-            <div>都電荒川線学習院下駅、東京メトロ副都心線雑司が谷駅3番出口から徒歩2分程度</div>
-          </v-card-text>
-          <Saekano1 ref="dialog1"></Saekano1>
-        </v-card>
-      </v-col>
-    
-      <v-col>
-        <v-card class="card" elevation=20 slot="activator" @click="show2()">
-          <v-img class="white--text align-end" height="200px" src="../../public/img/saekano2.jpeg">
-            <v-card-title class="title">都電荒川線学習院下駅踏切</v-card-title>
-          </v-img>
-        
-          <v-card-subtitle class="pb-0">2019年11月1日</v-card-subtitle>
-        
-          <v-card-text class="text--primary">
-            <div class="name">アニメ:冴えない彼女の育てかたOP</div>
-            <div>都電荒川線学習院下駅を降りてすぐの踏切</div>
-          </v-card-text>
-          <Saekano2 ref="dialog2"></Saekano2>
-        </v-card>
-      </v-col>
-  
-      <v-col>
-        <v-card class="card" elevation=20 slot="activator" @click="show3()">
-          <v-img class="white--text align-end" height="200px" src="../../public/img/IMG_2536.jpg">
-            <v-card-title class="title">都電荒川線面影橋駅</v-card-title>
-          </v-img>
-      
-          <v-card-subtitle class="pb-0">2019年11月1日</v-card-subtitle>
-      
-          <v-card-text class="text--primary">
-            <div class="name">アニメ:冴えない彼女の育てかた4話</div>
-            <div>都電荒川線面影橋駅を降りた正面</div>
-          </v-card-text>
-          <Saekano3 ref="dialog3"></Saekano3>
-        </v-card>
-      </v-col>
-  
-      <v-col>
-        <v-card class="card" elevation=20 slot="activator" @click="show4()">
-          <v-img class="white--text align-end" height="200px" src="../../public/img/IMG_2430.jpg">
-            <v-card-title class="title">京都駅</v-card-title>
-          </v-img>
-      
-          <v-card-subtitle class="pb-0">2019年5月3日</v-card-subtitle>
-      
-          <v-card-text class="text--primary">
-            <div class="name">アニメ:響け! ユーフォニアム、やはり俺の青春ラブコメはまちがっている。など多数</div>
-            <div>京都駅中央口JRホーム側改札外</div>
-          </v-card-text>
-          <HibikeEuphonium1 ref="dialog4"></HibikeEuphonium1>
-        </v-card>
-      </v-col>
-  
-      <v-col>
-        <v-card class="card" elevation=20 slot="activator" @click="show5()">
-          <v-img class="white--text align-end" height="200px" src="../../public/img/IMG_6099.jpg">
-            <v-card-title class="title">大吉山</v-card-title>
-          </v-img>
-      
-          <v-card-subtitle class="pb-0">2018年7月26日</v-card-subtitle>
-      
-          <v-card-text class="text--primary">
-            <div class="name">アニメ:響け! ユーフォニアム1期8話</div>
-            <div>京阪宇治線宇治駅から徒歩20分</div>
-            <div>JR奈良線宇治駅から徒歩30分</div>
-          </v-card-text>
-          <HibikeEuphonium2 ref="dialog5"></HibikeEuphonium2>
-        </v-card>
-      </v-col>
-  
-      <v-col>
-        <v-card class="card" elevation=20 slot="activator" @click="show6()">
-          <v-img class="white--text align-end" height="200px" src="../../public/img/IMG_4816.jpg">
-            <v-card-title class="title">祇園白川</v-card-title>
-          </v-img>
-      
-          <v-card-subtitle class="pb-0">2019年4月2日</v-card-subtitle>
-      
-          <v-card-text class="text--primary">
-            <div class="name">ゲーム:千恋*万花 序盤共通ルートなど多数</div>
-            <div>京阪電車祇園四条駅から徒歩5分</div>
-          </v-card-text>
-          <SenrenBanka1 ref="dialog6"></SenrenBanka1>
-        </v-card>
-      </v-col>
-      
-      <v-col>
-        <v-card class="card" elevation=20 slot="activator" @click="show7()">
-          <v-img class="white--text align-end" height="200px" src="../../public/img/IMG_6328.jpg">
-            <v-card-title class="title">産寧坂（三年坂）</v-card-title>
-          </v-img>
-      
-          <v-card-subtitle class="pb-0">2018年7月26日</v-card-subtitle>
-      
-          <v-card-text class="text--primary">
-            <div class="name">ゲーム:千恋*万花 常陸茉子と鮎を食べる場所など多数</div>
-            <div>京阪電車祇園四条駅から徒歩20分</div>
-          </v-card-text>
-          <SenrenBanka2 ref="dialog7"></SenrenBanka2>
-        </v-card>
-      </v-col>
-
-      <v-col>
-        <v-card class="card" elevation=20 slot="activator" @click="show8()">
-          <v-img class="white--text align-end" height="200px" src="../../public/img/IMG_8678.jpg">
-            <v-card-title class="title">花見小路通</v-card-title>
-          </v-img>
-
-          <v-card-subtitle class="pb-0">2018年7月26日</v-card-subtitle>
-
-          <v-card-text class="text--primary">
-            <div class="name">ゲーム:千恋*万花 序盤共通ルート</div>
-            <div>京阪電車祇園四条駅から徒歩3分</div>
-          </v-card-text>
-          <SenrenBanka3 ref="dialog8"></SenrenBanka3>
-        </v-card>
-      </v-col>
-  
-      <v-col>
-        <v-card class="card" elevation=20 slot="activator" @click="show9()">
-          <v-img class="white--text align-end" height="200px" src="../../public/img/IMG_8676.jpg">
-            <v-card-title class="title">七里ヶ浜駅</v-card-title>
-          </v-img>
-      
-          <v-card-subtitle class="pb-0">2019年3月5日</v-card-subtitle>
-      
-          <v-card-text class="text--primary">
-            <div class="name">アニメ:青春ブタ野郎はバニーガール先輩の夢を見ない</div>
-            <div>七里ヶ浜駅前</div>
+            <div class="name">{{ article.name }}</div>
+            <div>{{ article.place1 }}</div>
+            <div>{{ article.place2 }}</div>
           </v-card-text>
         </v-card>
       </v-col>
     </v-row>
+    
+    <Saekano1 ref="dialog1"></Saekano1>
+    <Saekano2 ref="dialog2"></Saekano2>
+    <Saekano3 ref="dialog3"></Saekano3>
+    <HibikeEuphonium1 ref="dialog4"></HibikeEuphonium1>
+    <HibikeEuphonium2 ref="dialog5"></HibikeEuphonium2>
+    <SenrenBanka1 ref="dialog6"></SenrenBanka1>
+    <SenrenBanka2 ref="dialog7"></SenrenBanka2>
+    <SenrenBanka3 ref="dialog8"></SenrenBanka3>
   </v-app>
 </template>
 
@@ -184,6 +63,9 @@
       show8() {
         this.$refs.dialog8.open();
       },
+      show9() {
+        this.$refs.dialog9.open();
+      }
     },
     components: {
       SenrenBanka3,
@@ -200,12 +82,77 @@
       return {
         articles: [
           {
-            show: 'show1()',
-            image: '../../public/img/EIVi2hOXYAEyylZ.jpeg',
+            show: this.show1,
+            image: 'img/EIVi2hOXYAEyylZ.jpeg',
             title: 'のぞき坂',
-            data: '2019年11月1日',
+            date: '2019年11月1日',
             name: 'アニメ:冴えない彼女の育てかたOPなど',
-            place: '都電荒川線学習院下駅、東京メトロ副都心線雑司が谷駅3番出口から徒歩2分程度',
+            place1: '都電荒川線学習院下駅、東京メトロ副都心線雑司が谷駅3番出口から徒歩2分程度',
+          },
+          {
+            show: this.show2,
+            image: 'img/saekano2.jpeg',
+            title: '都電荒川線学習院下駅踏切',
+            date: '2019年11月1日',
+            name: 'アニメ:冴えない彼女の育てかたOP',
+            place1: '都電荒川線学習院下駅を降りてすぐの踏切',
+          },
+          {
+            show: this.show3,
+            image: 'img/IMG_2536.jpg',
+            title: '都電荒川線面影橋駅',
+            date: '2019年11月1日',
+            name: 'アニメ:冴えない彼女の育てかた4話',
+            place1: '都電荒川線面影橋駅を降りた正面',
+          },
+          {
+            show: this.show4,
+            image: 'img/IMG_2430.jpg',
+            title: '京都駅',
+            date: '2019年5月3日',
+            name: 'アニメ:響け! ユーフォニアム、やはり俺の青春ラブコメはまちがっている。など多数',
+            place1: '京阪宇治線宇治駅から徒歩20分',
+          },
+          {
+            show: this.show5,
+            image: 'img/IMG_6099.jpg',
+            title: '大吉山',
+            date: '2018年7月26日',
+            name: 'アニメ:響け! ユーフォニアム1期8話',
+            place1: '京都駅中央口JRホーム側改札外',
+            place2: 'JR奈良線宇治駅から徒歩30分'
+          },
+          {
+            show: this.show6,
+            image: 'img/IMG_4816.jpg',
+            title: '祇園白川',
+            date: '2019年4月2日',
+            name: 'ゲーム:千恋*万花 序盤共通ルートなど多数',
+            place1: '京阪電車祇園四条駅から徒歩5分',
+          },
+          {
+            show: this.show7,
+            image: 'img/IMG_6328.jpg',
+            title: '産寧坂（三年坂）',
+            date: '2018年7月26日',
+            name: 'ゲーム:千恋*万花 常陸茉子と鮎を食べる場所など多数',
+            place1: '京阪電車祇園四条駅から徒歩20分',
+          },
+          {
+            show: this.show8,
+            image: 'img/IMG_8678.jpg',
+            title: '花見小路通',
+            date: '2018年7月26日',
+            name: 'ゲーム:千恋*万花 序盤共通ルート',
+            place1: '京阪電車祇園四条駅から徒歩3分',
+          },
+          {
+            show: this.show9,
+            image: 'img/IMG_8676.jpg',
+            title: '七里ヶ浜駅',
+            date: '2019年3月5日',
+            name: 'アニメ:青春ブタ野郎はバニーガール先輩の夢を見ない',
+            place1: '七里ヶ浜駅前',
           },
         ]
       };
