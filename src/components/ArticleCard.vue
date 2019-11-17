@@ -3,7 +3,8 @@
     <v-row justify="center" style="margin: 0">
       <v-col v-for="(article, index) in articles" :key="index">
         <v-card class="card" elevation=20 slot="activator" @click="article.show">
-          <v-img class="white--text align-end" height="200px" v-bind:src="article.image" alt="">
+          <v-img class="white--text align-end" height="200px" v-bind:src="article.image" @load="loaded" alt="">
+            <pulse-loader :loading="isLoading"></pulse-loader>
             <v-card-title class="title">{{ article.title }}</v-card-title>
           </v-img>
           <v-card-subtitle class="pb-0">{{ article.date }}</v-card-subtitle>
@@ -28,6 +29,7 @@
 </template>
 
 <script>
+  import PulseLoader from "vue-spinner/src/PulseLoader";
   import Saekano1 from "./Saekano1";
   import Saekano2 from "./Saekano2";
   import Saekano3 from "./Saekano3";
@@ -39,6 +41,9 @@
   export default {
     name: "ArticleCard",
     methods: {
+      loaded () {
+        this.isLoading = !this.isLoading
+      },
       show1() {
         this.$refs.dialog1.open();
       },
@@ -68,6 +73,7 @@
       }
     },
     components: {
+      PulseLoader,
       SenrenBanka3,
       SenrenBanka2,
       SenrenBanka1,
@@ -80,6 +86,7 @@
 
     data: function() {
       return {
+        isLoading: true,
         articles: [
           {
             show: this.show1,
@@ -156,7 +163,7 @@
           },
         ]
       };
-    }
+    },
   }
 </script>
 
