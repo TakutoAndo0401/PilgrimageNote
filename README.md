@@ -8,6 +8,8 @@
 
 ***
 ### To Do
+https://github.com/RitaChan0401/PilgrimageNote/projects/1
+
 - リアルタイム検索
 - ローディング画面の追加　
 - Cardにアニメーションを追加
