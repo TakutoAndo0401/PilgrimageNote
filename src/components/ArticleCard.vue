@@ -65,25 +65,21 @@
         loading: true,
       }
     },
-    mounted() {
+    beforeCreate() {
       axios
           .get("https://pilgrimage-note-api.herokuapp.com/api/articles")
           .then(response => {
             this.articles = response.data;
-          });
-    },
-    created() {
-      setTimeout(() => {
-        this.loading = false
-      },2000)
+            this.loading = false
+          })
     },
   }
 </script>
 
 <style scoped>
   .card {
-    max-width: 400px;
-    max-height: 320px;
+    width: 400px;
+    height: 320px;
     margin: 0 auto;
     ovarflow-y: hidden;
   }
@@ -98,7 +94,7 @@
 
   .fade-enter-active, .fade-leave-active {
     will-change: opacity;
-    transition: opacity 4000ms cubic-bezier(0.2, 0, 0, 1) 0ms;
+    transition: opacity 3000ms cubic-bezier(0.2, 0, 0, 1) 0ms;
   }
   .fade-enter, .fade-leave-to {
     opacity: 0
