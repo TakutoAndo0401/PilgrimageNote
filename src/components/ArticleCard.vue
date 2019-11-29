@@ -1,6 +1,9 @@
 <template>
   <v-app>
     <vue-loading v-show="loading" type="spin" color="#fff" :size="{ width: '100px', height: '100px' }"></vue-loading>
+    <section v-if="errored" class="errored">
+      <p>We're sorry, we're not able to retrieve this articles at the moment, please try back later</p>
+    </section>
     <transition name="fade">
       <v-row justify="center" style="margin: 0" v-show="!loading">
         <v-col v-for="(article, id) in articles" :key="id">
@@ -63,20 +66,31 @@
       return {
         articles: [],
         loading: true,
+        errored: false
       }
     },
     beforeCreate() {
       axios
           .get("https://pilgrimage-note-api.herokuapp.com/api/articles")
+          //axiosの処理が成功した場合に処理
           .then(response => {
             this.articles = response.data;
-            this.loading = false
           })
+          .catch(() => {
+            //axiosの処理にエラーが発生した場合に処理
+            this.errored = true
+          })
+          //axiosの処理結果によらずいつも実行させたい処理
+          .finally(() => this.loading = false)
     },
   }
 </script>
 
 <style scoped>
+  .errored {
+    text-align: center;
+    margin-top: 20%;
+  }
   .card {
     width: 400px;
     height: 320px;
