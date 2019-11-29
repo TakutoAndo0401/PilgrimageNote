@@ -1,7 +1,7 @@
 <template>
   <v-dialog v-model="dialog1" width="450">
     <v-card>
-      <img src="../../public/img/EIVi2hOXYAEyylZ.jpeg" class="image"/>
+      <img src="https://pilgrimage-note-images.s3-ap-northeast-1.amazonaws.com/EIVi2hOXYAEyylZ.jpeg" class="image" alt=""/>
       <v-card-title>
         のぞき坂(別名:胸突坂)
       </v-card-title>

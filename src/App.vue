@@ -19,13 +19,14 @@
       Header,
       ArticleCard,
     },
+
     mounted() {
       let loading =  this.$refs.loading;
       let app = this.$refs.app;
-      window.addEventListener('load', function () {
+      onload = function() {
         loading.style.display = 'none';
         app.classList.remove('hidden');
-      });
+      };
     }
   };
 </script>
