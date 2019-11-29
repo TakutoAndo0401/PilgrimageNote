@@ -1,6 +1,7 @@
 <template>
   <v-app>
-    <v-row justify="center" style="margin: 0" >
+    <vue-loading v-show="loading" type="spin" color="#fff" :size="{ width: '100px', height: '100px' }"></vue-loading>
+    <v-row justify="center" style="margin: 0"  v-show="!loading">
       <v-col v-for="(article, id) in articles" :key="id">
         <v-card class="card" elevation=20 slot="activator" @click="show(article.index)">
           <v-img class="white--text align-end" height="200px" :src="article.image" alt="">
@@ -37,9 +38,11 @@
   import SenrenBanka2 from "./SenrenBanka2";
   import SenrenBanka3 from "./SenrenBanka3";
   import axios from 'axios';
+  import { VueLoading } from 'vue-loading-template'
   export default {
     name: "ArticleCard",
     components: {
+      VueLoading,
       SenrenBanka3,
       SenrenBanka2,
       SenrenBanka1,
@@ -57,12 +60,16 @@
     data() {
       return {
         articles: [],
+        loading: true,
       }
     },
     mounted() {
       axios
           .get("https://pilgrimage-note-api.herokuapp.com/api/articles")
-          .then(response => (this.articles = response.data))
+          .then(response => {
+            this.articles = response.data;
+            this.loading = false;
+          })
     },
   }
 </script>
