@@ -1,7 +1,7 @@
 <template>
   <v-dialog v-model="dialog2" width="450">
     <v-card>
-      <img src="../../public/img/saekano2.jpeg" class="image"/>
+      <img src="https://pilgrimage-note-images.s3-ap-northeast-1.amazonaws.com/saekano2.jpeg" class="image"/>
       <v-card-title>
         都電荒川線学習院下駅すぐの踏切
       </v-card-title>
@@ -38,7 +38,7 @@
         this.dialog2 = true;
       },
       close() {
-        this.dialog2 = false;2
+        this.dialog2 = false;
       }
     }
   }

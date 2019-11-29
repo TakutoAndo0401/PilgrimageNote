@@ -1,7 +1,7 @@
 <template>
   <v-dialog v-model="dialog5" width="450">
     <v-card>
-      <img src="../../public/img/IMG_6099.jpg" class="image"/>
+      <img src="https://pilgrimage-note-images.s3-ap-northeast-1.amazonaws.com/IMG_6099.jpg" class="image"/>
       <v-card-title>
         大吉山展望台
       </v-card-title>

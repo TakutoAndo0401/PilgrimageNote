@@ -1,7 +1,7 @@
 <template>
   <v-dialog v-model="dialog6" width="450">
     <v-card>
-      <img src="../../public/img/IMG_4816.jpg" class="image"/>
+      <img src="https://pilgrimage-note-images.s3-ap-northeast-1.amazonaws.com/IMG_4816.jpg" class="image"/>
       <v-card-title>
         祇園白川
       </v-card-title>

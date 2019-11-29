@@ -1,7 +1,7 @@
 <template>
   <v-dialog v-model="dialog8" width="450">
     <v-card>
-      <img src="../../public/img/IMG_8678.jpg" class="image" alt="花見小路通"/>
+      <img src="https://pilgrimage-note-images.s3-ap-northeast-1.amazonaws.com/IMG_8678.jpg" class="image" alt="花見小路通"/>
       <v-card-title>
         花見小路通
       </v-card-title>

@@ -1,7 +1,7 @@
 <template>
   <v-dialog v-model="dialog4" width="450">
     <v-card>
-      <img src="../../public/img/IMG_2430.jpg" class="image"/>
+      <img src="https://pilgrimage-note-images.s3-ap-northeast-1.amazonaws.com/IMG_2430.jpg" class="image"/>
       <v-card-title>
         京都駅中央口JRホーム側改札外
       </v-card-title>

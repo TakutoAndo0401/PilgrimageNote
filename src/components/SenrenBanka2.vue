@@ -1,7 +1,7 @@
 <template>
   <v-dialog v-model="dialog7" width="450">
     <v-card>
-      <img src="../../public/img/IMG_6328.jpg" class="image"/>
+      <img src="https://pilgrimage-note-images.s3-ap-northeast-1.amazonaws.com/IMG_6328.jpg" class="image"/>
       <v-card-title>
         産寧坂（三年坂）
       </v-card-title>

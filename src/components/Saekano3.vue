@@ -1,7 +1,7 @@
 <template>
   <v-dialog v-model="dialog3" width="450">
     <v-card>
-      <img src="../../public/img/IMG_2536.jpg" class="image"/>
+      <img src="https://pilgrimage-note-images.s3-ap-northeast-1.amazonaws.com/IMG_2536.jpg" class="image"/>
       <v-card-title>
         都電荒川線面影橋駅を降りた正面
       </v-card-title>
