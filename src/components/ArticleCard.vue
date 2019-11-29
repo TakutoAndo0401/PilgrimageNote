@@ -1,21 +1,23 @@
 <template>
   <v-app>
     <vue-loading v-show="loading" type="spin" color="#fff" :size="{ width: '100px', height: '100px' }"></vue-loading>
-    <v-row justify="center" style="margin: 0"  v-show="!loading">
-      <v-col v-for="(article, id) in articles" :key="id">
-        <v-card class="card" elevation=20 slot="activator" @click="show(article.index)">
-          <v-img class="white--text align-end" height="200px" :src="article.image" alt="">
-            <v-card-title class="title">{{ article.title }}</v-card-title>
-          </v-img>
-          <v-card-subtitle class="pb-0">{{ article.date }}</v-card-subtitle>
-          <v-card-text class="text--primary">
-            <div class="name">{{ article.name }}</div>
-            <div>{{ article.place1 }}</div>
-            <div>{{ article.place2 }}</div>
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
+    <transition name="fade">
+      <v-row justify="center" style="margin: 0" v-show="!loading">
+        <v-col v-for="(article, id) in articles" :key="id">
+          <v-card class="card" elevation=20 slot="activator" @click="show(article.index)">
+            <v-img class="white--text align-end" height="200px" :src="article.image" alt="">
+              <v-card-title class="title">{{ article.title }}</v-card-title>
+            </v-img>
+            <v-card-subtitle class="pb-0">{{ article.date }}</v-card-subtitle>
+            <v-card-text class="text--primary">
+              <div class="name">{{ article.name }}</div>
+              <div>{{ article.place1 }}</div>
+              <div>{{ article.place2 }}</div>
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+    </transition>
 
     <Saekano1 ref="dialog1"></Saekano1>
     <Saekano2 ref="dialog2"></Saekano2>
@@ -68,8 +70,12 @@
           .get("https://pilgrimage-note-api.herokuapp.com/api/articles")
           .then(response => {
             this.articles = response.data;
-            this.loading = false;
-          })
+          });
+    },
+    created() {
+      setTimeout(() => {
+        this.loading = false
+      },2000)
     },
   }
 </script>
@@ -88,5 +94,13 @@
   
   .name {
     margin-bottom: 5px;
+  }
+
+  .fade-enter-active, .fade-leave-active {
+    will-change: opacity;
+    transition: opacity 4000ms cubic-bezier(0.2, 0, 0, 1) 0ms;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0
   }
 </style>
