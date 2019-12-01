@@ -1,10 +1,10 @@
 <template>
   <v-app>
-    <vue-loading v-show="loading" type="spin" color="#fff" :size="{ width: '100px', height: '100px' }"></vue-loading>
+    <vue-loading v-show="loading" type="spin" color="#fff" :size="{ width: '100px', height: '100px' }"/>
     <section v-if="errored" class="errored">
       <p>We're sorry, we're not able to retrieve this articles at the moment, please try back later</p>
     </section>
-    <transition name="fade">
+    <transition name="slide-fade">
       <v-row justify="center" style="margin: 0" v-show="!loading">
         <v-col v-for="(article, id) in articles" :key="id">
           <v-card class="card" elevation=20 slot="activator" @click="show(article.index)">
@@ -21,15 +21,15 @@
         </v-col>
       </v-row>
     </transition>
-
-    <Saekano1 ref="dialog1"></Saekano1>
-    <Saekano2 ref="dialog2"></Saekano2>
-    <Saekano3 ref="dialog3"></Saekano3>
-    <HibikeEuphonium1 ref="dialog4"></HibikeEuphonium1>
-    <HibikeEuphonium2 ref="dialog5"></HibikeEuphonium2>
-    <SenrenBanka1 ref="dialog6"></SenrenBanka1>
-    <SenrenBanka2 ref="dialog7"></SenrenBanka2>
-    <SenrenBanka3 ref="dialog8"></SenrenBanka3>
+  
+    <Saekano1 ref="dialog1"/>
+    <Saekano2 ref="dialog2"/>
+    <Saekano3 ref="dialog3"/>
+    <HibikeEuphonium1 ref="dialog4"/>
+    <HibikeEuphonium2 ref="dialog5"/>
+    <SenrenBanka1 ref="dialog6"/>
+    <SenrenBanka2 ref="dialog7"/>
+    <SenrenBanka3 ref="dialog8"/>
   </v-app>
 </template>
 
@@ -106,11 +106,22 @@
     margin-bottom: 5px;
   }
 
-  .fade-enter-active, .fade-leave-active {
+  /*
+  .fade-enter-active {
     will-change: opacity;
     transition: opacity 3000ms cubic-bezier(0.2, 0, 0, 1) 0ms;
   }
-  .fade-enter, .fade-leave-to {
+  .fade-enter {
     opacity: 0
+  }
+  */
+  
+  .slide-fade-enter-active {
+    transition: all .5s ease;
+  }
+  
+  .slide-fade-enter {
+    transform: translateY(300px);
+    opacity: 0;
   }
 </style>
