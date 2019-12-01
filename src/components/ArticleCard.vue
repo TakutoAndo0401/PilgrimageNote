@@ -5,7 +5,7 @@
       <p>We're sorry, we're not able to retrieve this articles at the moment, please try back later</p>
     </section>
     <transition name="slide-fade">
-      <v-row justify="center" style="margin: 0" v-show="!loading">
+      <v-row style="margin: 0" v-show="!loading">
         <v-col v-for="(article, id) in articles" :key="id">
           <v-card class="card" elevation=20 slot="activator" @click="show(article.index)">
             <v-img class="white--text align-end" height="200px" :src="article.image" alt="">
