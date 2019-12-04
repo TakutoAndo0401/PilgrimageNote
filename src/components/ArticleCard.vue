@@ -4,6 +4,7 @@
     <section v-if="errored" class="errored">
       <p>We're sorry, we're not able to retrieve this articles at the moment, please try back later</p>
     </section>
+    <input class="form-control mr-sm-2" type="text" placeholder="Search" v-model="search_term" aria-label="Search" />
     <transition name="slide-fade">
       <v-row style="margin: 0" v-show="!loading">
         <v-col v-for="(article, id) in articles" :key="id">
@@ -60,13 +61,26 @@
     methods: {
       show(index) {
         this.$refs[`dialog${index}`].open();
+      },
+      getArticles: function() {
+        let api_url = "https://pilgrimage-note-api.herokuapp.com/api/articles";
+        if (this.search_term !== "" || this.search_term !== null) {
+          api_url = `https://pilgrimage-note-api.herokuapp.com/api/articles?word=${this.search_term}`;
+          
+        }
+        axios
+            .get(api_url)
+            .then(response => {
+              this.articles = response.data;
+            })
       }
     },
     data() {
       return {
         articles: [],
         loading: true,
-        errored: false
+        errored: false,
+        search_term: ""
       }
     },
     beforeCreate() {
@@ -82,6 +96,9 @@
           })
           //axiosの処理結果によらずいつも実行させたい処理
           .finally(() => this.loading = false)
+    },
+    created() {
+      window.addEventListener("keyup", this.getArticles);
     },
   }
 </script>
