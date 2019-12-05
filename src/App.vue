@@ -1,17 +1,17 @@
 <template>
   <div>
-    <Header/>
+<!--    <Header/>-->
     <ArticleCard/>
   </div>
 </template>
 
 <script>
   import ArticleCard from "./components/ArticleCard";
-  import Header from "./components/Header";
+  // import Header from "./components/Header";
   export default {
     name: 'App',
     components: {
-      Header,
+      // Header,
       ArticleCard,
     },
   };
