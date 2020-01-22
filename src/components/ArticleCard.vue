@@ -5,7 +5,7 @@
         <v-flex xs12><span id="title">聖地巡礼ノート</span></v-flex>
       </v-toolbar-title>
       <v-spacer />
-      <v-icon id="icon" style="font-size: 20px">fas fa-search</v-icon>
+      <v-icon id="icon">fas fa-search</v-icon>
       <v-flex xs4 md4>
         <v-row>
           <v-text-field
@@ -23,8 +23,8 @@
       <p>We're sorry, we're not able to retrieve this articles at the moment, please try back later</p>
     </section>
     <transition name="slide-fade">
-      <v-row style="margin-top: 60px" v-show="!loading">
-        <v-col v-for="(article, id) in articles" :key="id">
+      <v-row style="margin-top: 60px" v-show="!loading" class="row">
+        <v-col v-for="(article, id) in articles" :key="id" style="flex-grow: 0">
           <v-hover
                   v-slot:default="{ hover }"
                   :open-delay="openDelay"
@@ -137,7 +137,8 @@
     font-size: 20px;
   }
   #icon {
-    margin-right: 20px;
+    font-size: 20px;
+    margin: -30px;
   }
   .errored {
     text-align: center;
@@ -158,6 +159,20 @@
     margin-bottom: 5px;
   }
 
+  .row {
+    justify-content: space-between;
+    margin: 0 40px;
+  }
+
+  @media screen and ( max-width:1024px) {
+    .row {
+      justify-content: center;
+      margin: 0;
+    }
+    #icon {
+      margin: 10px;
+    }
+  }
   
   /*.fade-enter-active {*/
   /*  will-change: opacity;*/

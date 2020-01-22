@@ -1,6 +1,7 @@
 <template>
-  <v-dialog v-model="dialog1" width="450">
+  <v-dialog v-model="dialog1" width="580px">
     <v-card>
+      <v-icon id="icon" @click="close()">fas fa-times</v-icon>
       <img src="https://pilgrimage-note-images.s3-ap-northeast-1.amazonaws.com/EIVi2hOXYAEyylZ.jpeg" class="image" alt=""/>
       <v-card-title>
         のぞき坂(別名:胸突坂)
@@ -15,9 +16,6 @@
         </div>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="primary" @click="close()">
-            Close
-          </v-btn>
         </v-card-actions>
       </v-card-text>
     </v-card>
@@ -44,6 +42,12 @@
 </script>
 
 <style scoped>
+  #icon {
+    position: absolute;
+    margin: 15px 20px;
+    font-size: 25px;
+  }
+  
   .image {
     max-width: 100%;
     height: auto;

@@ -1,6 +1,7 @@
 <template>
-  <v-dialog v-model="dialog2" width="450">
+  <v-dialog v-model="dialog2" width="580px">
     <v-card>
+      <v-icon id="icon" @click="close()">fas fa-times</v-icon>
       <img src="https://pilgrimage-note-images.s3-ap-northeast-1.amazonaws.com/saekano2.jpeg" class="image"/>
       <v-card-title>
         都電荒川線学習院下駅すぐの踏切
@@ -17,9 +18,6 @@
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color="primary" @click="close()">
-          Close
-        </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -45,6 +43,12 @@
 </script>
 
 <style scoped>
+  #icon {
+    position: absolute;
+    margin: 15px 20px;
+    font-size: 25px;
+  }
+  
   .image {
     max-width: 70%;
     height: auto;
