@@ -1,6 +1,6 @@
 <template>
-  <v-app>
-    <v-app-bar app clipped-left color="red" dense>
+  <v-app style="background-color: #212121">
+    <v-app-bar app clipped-left color="#333333" dense>
       <v-toolbar-title>
         <v-flex xs12><span id="title">聖地巡礼ノート</span></v-flex>
       </v-toolbar-title>
@@ -32,7 +32,7 @@
                   :disabled="disabled"
                   :value="value"
           >
-            <v-card class="card" slot="activator" @click="show(article.index)" :elevation="hover ? 12 : 2">
+            <v-card class="card" color="#333333" slot="activator" @click="show(article.index)" :elevation="hover ? 12 : 2">
               <v-img class="white--text align-end" height="200px" :src="article.image" alt="">
                 <v-card-title class="title">{{ article.title }}</v-card-title>
               </v-img>
