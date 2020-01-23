@@ -18,9 +18,6 @@
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color="primary" @click="close()">
-          Close
-        </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
