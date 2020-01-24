@@ -46,6 +46,7 @@
     position: absolute;
     margin: 15px 20px;
     font-size: 25px;
+    color: black;
   }
   
   .image {

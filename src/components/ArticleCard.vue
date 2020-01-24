@@ -56,6 +56,10 @@
     <SenrenBanka1 ref="dialog6"/>
     <SenrenBanka2 ref="dialog7"/>
     <SenrenBanka3 ref="dialog8"/>
+    <Aobuta1 ref="dialog9"/>
+    <Aobuta2 ref="dialog10"/>
+    <Aobuta3 ref="dialog11"/>
+    <Haifuri ref="dialog12"/>
   </v-app>
 </template>
 
@@ -70,9 +74,17 @@
   import SenrenBanka3 from "./SenrenBanka3";
   import axios from 'axios';
   import { VueLoading } from 'vue-loading-template'
+  import Aobuta1 from "./Aobuta1";
+  import Aobuta2 from "./Aobuta2";
+  import Aobuta3 from "./Aobuta3";
+  import Haifuri from "./Haifuri";
   export default {
     name: "ArticleCard",
     components: {
+      Haifuri,
+      Aobuta3,
+      Aobuta2,
+      Aobuta1,
       VueLoading,
       SenrenBanka3,
       SenrenBanka2,
@@ -181,7 +193,6 @@
   /*.fade-enter {*/
   /*  opacity: 0*/
   /*}*/
-  
   
   .slide-fade-enter-active {
     transition:all .700s cubic-bezier(0.2, 0, 0, 1) 0ms;;
