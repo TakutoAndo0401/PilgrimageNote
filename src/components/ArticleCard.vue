@@ -39,8 +39,8 @@
               <v-card-subtitle class="pb-0">{{ article.date }}</v-card-subtitle>
               <v-card-text class="text--primary">
                 <div class="name">{{ article.name }}</div>
-                <div>{{ article.place1 }}</div>
-                <div>{{ article.place2 }}</div>
+                <div class="place">{{ article.place1 }}</div>
+                <div class="place">{{ article.place2 }}</div>
               </v-card-text>
             </v-card>
           </v-hover>
@@ -176,13 +176,32 @@
     margin: 0 40px;
   }
 
-  @media screen and ( max-width:1024px) {
+  @media screen and (max-width: 1024px) {
     .row {
       justify-content: center;
       margin: 0;
     }
     #icon {
       margin: 10px;
+    }
+  }
+  
+  @media screen and (max-width: 375px) {
+    .name {
+      margin-bottom: 0;
+    }
+    .place {
+      font-size: 12px;
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+    .name {
+      margin-bottom: 0;
+      font-size: 13px;
+    }
+    .place {
+      font-size: 10px;
     }
   }
   
