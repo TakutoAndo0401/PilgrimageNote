@@ -60,10 +60,17 @@
     <Aobuta2 ref="dialog10"/>
     <Aobuta3 ref="dialog11"/>
     <Haifuri ref="dialog12"/>
+    <Yosuganosora ref="dialog13"/>
+    <Gochiusa1 ref="dialog14"/>
+    <Gochiusa2 ref="dialog15"/>
+    <Gochiusa3 ref="dialog16"/>
   </v-app>
 </template>
 
 <script>
+  import axios from 'axios';
+  import { VueLoading } from 'vue-loading-template'
+  
   import Saekano1 from "./Saekano1";
   import Saekano2 from "./Saekano2";
   import Saekano3 from "./Saekano3";
@@ -72,15 +79,22 @@
   import SenrenBanka1 from "./SenrenBanka1";
   import SenrenBanka2 from "./SenrenBanka2";
   import SenrenBanka3 from "./SenrenBanka3";
-  import axios from 'axios';
-  import { VueLoading } from 'vue-loading-template'
   import Aobuta1 from "./Aobuta1";
   import Aobuta2 from "./Aobuta2";
   import Aobuta3 from "./Aobuta3";
   import Haifuri from "./Haifuri";
+  import Yosuganosora from "./Yosuganosora";
+  import Gochiusa1 from "./Gochiusa1";
+  import Gochiusa2 from "./Gochiusa2";
+  import Gochiusa3 from "./Gochiusa3";
+  
   export default {
     name: "ArticleCard",
     components: {
+      Gochiusa3,
+      Gochiusa2,
+      Gochiusa1,
+      Yosuganosora,
       Haifuri,
       Aobuta3,
       Aobuta2,
