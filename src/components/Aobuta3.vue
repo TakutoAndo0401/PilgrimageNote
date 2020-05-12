@@ -2,7 +2,18 @@
   <v-dialog v-model="dialog11" width="580px">
     <v-card>
       <v-icon id="icon" @click="close()">fas fa-times</v-icon>
-      <img src="https://pilgrimage-note-images.s3-ap-northeast-1.amazonaws.com/IMG_2284.jpg" class="image" alt=""/>
+      <v-carousel
+              height="400"
+              hide-delimiter-background
+              show-arrows-on-hover
+      >
+        <v-carousel-item
+                v-for="({src},i) in items"
+                :key="i"
+                :src="src"
+        >
+        </v-carousel-item>
+      </v-carousel>
       <v-card-title>
         江の島大橋・江の島弁天橋
       </v-card-title>
@@ -27,7 +38,12 @@
     name: "Aobuta3",
     data() {
       return {
-        dialog11: false
+        dialog11: false,
+        items: [
+          {
+            src: 'https://pilgrimage-note-images.s3-ap-northeast-1.amazonaws.com/IMG_2284.jpg',
+          },
+        ]
       };
     },
     methods: {
@@ -46,11 +62,7 @@
     position: absolute;
     margin: 15px 20px;
     font-size: 25px;
-  }
-  
-  .image {
-    max-width: 100%;
-    height: auto;
+    z-index: 1;
   }
   
   .map {

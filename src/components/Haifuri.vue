@@ -2,7 +2,19 @@
   <v-dialog v-model="dialog12" width="580px">
     <v-card>
       <v-icon id="icon" @click="close()">fas fa-times</v-icon>
-      <img src="https://pilgrimage-note-images.s3-ap-northeast-1.amazonaws.com/IMG_2317.jpg" class="image" alt=""/>
+      <v-carousel
+              cycle
+              height="400"
+              hide-delimiter-background
+              show-arrows-on-hover
+      >
+        <v-carousel-item
+                v-for="({src},i) in items"
+                :key="i"
+                :src="src"
+        >
+        </v-carousel-item>
+      </v-carousel>
       <v-card-title>
         佐野天然温泉 湯処 「のぼり雲」
       </v-card-title>
@@ -27,7 +39,12 @@
     name: "Haifuri",
     data() {
       return {
-        dialog12: false
+        dialog12: false,
+        items: [
+          {
+            src: 'https://pilgrimage-note-images.s3-ap-northeast-1.amazonaws.com/IMG_2317.jpg',
+          },
+        ]
       };
     },
     methods: {
@@ -47,13 +64,9 @@
     margin: 15px 20px;
     font-size: 25px;
     color: black;
+    z-index: 1;
   }
-  
-  .image {
-    max-width: 100%;
-    height: auto;
-  }
-  
+
   .map {
     position: relative;
     overflow: hidden;

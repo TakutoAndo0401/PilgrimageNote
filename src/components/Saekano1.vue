@@ -2,7 +2,18 @@
   <v-dialog v-model="dialog1" width="580px">
     <v-card>
       <v-icon id="icon" @click="close()">fas fa-times</v-icon>
-      <img src="https://pilgrimage-note-images.s3-ap-northeast-1.amazonaws.com/EIVi2hOXYAEyylZ.jpeg" class="image" alt=""/>
+      <v-carousel
+              height="400"
+              hide-delimiter-background
+              show-arrows-on-hover
+      >
+        <v-carousel-item
+                v-for="({src},i) in items"
+                :key="i"
+                :src="src"
+        >
+        </v-carousel-item>
+      </v-carousel>
       <v-card-title>
         のぞき坂(別名:胸突坂)
       </v-card-title>
@@ -27,7 +38,12 @@
     name: "Dialog",
     data() {
       return {
-        dialog1: false
+        dialog1: false,
+        items: [
+          {
+            src: 'https://pilgrimage-note-images.s3-ap-northeast-1.amazonaws.com/EIVi2hOXYAEyylZ.jpeg',
+          },
+        ]
       };
     },
     methods: {
@@ -46,13 +62,9 @@
     position: absolute;
     margin: 15px 20px;
     font-size: 25px;
+    z-index: 1;
   }
-  
-  .image {
-    max-width: 100%;
-    height: auto;
-  }
-  
+
   .map {
     position: relative;
     overflow: hidden;

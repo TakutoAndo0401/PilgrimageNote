@@ -2,7 +2,18 @@
   <v-dialog v-model="dialog8" width="580px">
     <v-card>
       <v-icon id="icon" @click="close()">fas fa-times</v-icon>
-      <img src="https://pilgrimage-note-images.s3-ap-northeast-1.amazonaws.com/IMG_8678.jpg" class="image" alt="花見小路通"/>
+      <v-carousel
+              height="400"
+              hide-delimiter-background
+              show-arrows-on-hover
+      >
+        <v-carousel-item
+                v-for="({src},i) in items"
+                :key="i"
+                :src="src"
+        >
+        </v-carousel-item>
+      </v-carousel>
       <v-card-title>
         花見小路通
       </v-card-title>
@@ -27,7 +38,12 @@
     name: "SenrenBanka3",
     data() {
       return {
-        dialog8: false
+        dialog8: false,
+        items: [
+          {
+            src: 'https://pilgrimage-note-images.s3-ap-northeast-1.amazonaws.com/IMG_8678.jpg',
+          },
+        ]
       };
     },
     methods: {
@@ -46,15 +62,9 @@
     position: absolute;
     margin: 15px 20px;
     font-size: 25px;
+    z-index: 1;
   }
-  
-  .image {
-    max-width: 70%;
-    height: auto;
-    display: block;
-    margin:0 auto;
-  }
-  
+
   .map {
     position: relative;
     overflow: hidden;

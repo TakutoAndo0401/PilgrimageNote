@@ -2,7 +2,18 @@
   <v-dialog v-model="dialog16" width="580px">
     <v-card>
       <v-icon id="icon" @click="close()">fas fa-times</v-icon>
-      <img src="https://pilgrimage-note-images.s3-ap-northeast-1.amazonaws.com/IMG_1063.JPG" class="image" alt=""/>
+      <v-carousel
+              height="400"
+              hide-delimiter-background
+              show-arrows-on-hover
+      >
+        <v-carousel-item
+                v-for="({src},i) in items"
+                :key="i"
+                :src="src"
+        >
+        </v-carousel-item>
+      </v-carousel>
       <v-card-title>
         La Petite Venise
       </v-card-title>
@@ -27,7 +38,12 @@
     name: "Gochiusa3",
     data() {
       return {
-        dialog16: false
+        dialog16: false,
+        items: [
+          {
+            src: 'https://pilgrimage-note-images.s3-ap-northeast-1.amazonaws.com/IMG_1063.JPG',
+          },
+        ]
       };
     },
     methods: {
@@ -47,13 +63,9 @@
     margin: 15px 20px;
     font-size: 25px;
     color: black;
+    z-index: 1;
   }
-  
-  .image {
-    max-width: 100%;
-    height: auto;
-  }
-  
+
   .map {
     position: relative;
     overflow: hidden;

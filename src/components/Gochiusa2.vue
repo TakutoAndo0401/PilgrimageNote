@@ -2,7 +2,18 @@
   <v-dialog v-model="dialog15" width="580px">
     <v-card>
       <v-icon id="icon" @click="close()">fas fa-times</v-icon>
-      <img src="https://pilgrimage-note-images.s3-ap-northeast-1.amazonaws.com/IMG_0977.jpeg" class="image" alt=""/>
+      <v-carousel
+              height="400"
+              hide-delimiter-background
+              show-arrows-on-hover
+      >
+        <v-carousel-item
+                v-for="({src},i) in items"
+                :key="i"
+                :src="src"
+        >
+        </v-carousel-item>
+      </v-carousel>
       <v-card-title>
         Restaurant Au Chasseur
       </v-card-title>
@@ -27,7 +38,12 @@
     name: "Gochiusa2",
     data() {
       return {
-        dialog15: false
+        dialog15: false,
+        items: [
+          {
+            src: 'https://pilgrimage-note-images.s3-ap-northeast-1.amazonaws.com/IMG_0977.jpeg',
+          },
+        ]
       };
     },
     methods: {
@@ -46,15 +62,9 @@
     position: absolute;
     margin: 15px 20px;
     font-size: 25px;
+    z-index: 1;
   }
-  
-  .image {
-    max-width: 70%;
-    height: auto;
-    display: block;
-    margin:0 auto;
-  }
-  
+
   .map {
     position: relative;
     overflow: hidden;

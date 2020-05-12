@@ -2,7 +2,18 @@
   <v-dialog v-model="dialog10" width="580px">
     <v-card>
       <v-icon id="icon" @click="close()">fas fa-times</v-icon>
-      <img src="https://pilgrimage-note-images.s3-ap-northeast-1.amazonaws.com/IMG_4092.jpg" class="image" alt=""/>
+      <v-carousel
+              height="400"
+              hide-delimiter-background
+              show-arrows-on-hover
+      >
+        <v-carousel-item
+                v-for="({src},i) in items"
+                :key="i"
+                :src="src"
+        >
+        </v-carousel-item>
+      </v-carousel>
       <v-card-title>
         神奈川県立七里ガ浜高等学校
       </v-card-title>
@@ -27,7 +38,15 @@
     name: "Aobuta2",
     data() {
       return {
-        dialog10: false
+        dialog10: false,
+        items: [
+          {
+            src: 'https://pilgrimage-note-images.s3-ap-northeast-1.amazonaws.com/IMG_4092.jpg',
+          },
+          {
+            src: 'https://cdn-ak.f.st-hatena.com/images/fotolife/a/astral01/20190328/20190328002935.jpg',
+          }
+        ]
       };
     },
     methods: {
@@ -46,13 +65,9 @@
     position: absolute;
     margin: 15px 20px;
     font-size: 25px;
+    z-index: 1;
   }
 
-  .image {
-    max-width: 100%;
-    height: auto;
-  }
-  
   .map {
     position: relative;
     overflow: hidden;
