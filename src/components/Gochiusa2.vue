@@ -3,9 +3,9 @@
     <v-card>
       <v-icon id="icon" @click="close()">fas fa-times</v-icon>
       <v-carousel
-              height="400"
+              :height="imageHeight"
               hide-delimiter-background
-              show-arrows-on-hover
+              hide-delimiters
       >
         <v-carousel-item
                 v-for="({src},i) in items"
@@ -45,6 +45,18 @@
           },
         ]
       };
+    },
+    computed: {
+      imageHeight () {
+        switch (this.$vuetify.breakpoint.name) {
+          case 'xs': return '240px'
+          case 'sm': return '400px'
+          case 'md': return '400px'
+          case 'lg': return '400px'
+          case 'xl': return '400px'
+        }
+        return this.imageHeight();
+      },
     },
     methods: {
       open() {
