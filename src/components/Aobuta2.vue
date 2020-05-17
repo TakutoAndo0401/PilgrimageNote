@@ -25,10 +25,11 @@
         <div class="map">
           <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1233.0728481582619!2d139.51218484338744!3d35.306504489536664!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60184f43dc650e53%3A0x5dd2121cc9d9437!2z56We5aWI5bed55yM56uL5LiD6YeM44Ks5rWc6auY562J5a2m5qCh!5e0!3m2!1sja!2sjp!4v1579873737914!5m2!1sja!2sjp" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
         </div>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+        </v-card-actions>
+        <v-btn class="close-button" v-if="this.$vuetify.breakpoint.xs" @click="close()">Close</v-btn>
       </v-card-text>
-      <v-card-actions>
-        <v-spacer></v-spacer>
-      </v-card-actions>
     </v-card>
   </v-dialog>
 </template>
@@ -91,5 +92,16 @@
     top: 0;
     height: 100%;
     width: 100%;
+  }
+
+  .close-button {
+    float: right;
+    margin-top: -22px;
+  }
+
+  @media screen and (max-width: 375px) {
+    .map {
+      margin: 25px 0 30px
+    }
   }
 </style>

@@ -28,6 +28,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
         </v-card-actions>
+        <v-btn class="close-button" v-if="this.$vuetify.breakpoint.xs" @click="close()">Close</v-btn>
       </v-card-text>
     </v-card>
   </v-dialog>
@@ -88,5 +89,16 @@
     top: 0;
     height: 100%;
     width: 100%;
+  }
+  
+  .close-button {
+    float: right;
+    margin-top: -22px;
+  }
+
+  @media screen and (max-width: 375px) {
+    .map {
+      margin: 25px 0 30px
+    }
   }
 </style>
