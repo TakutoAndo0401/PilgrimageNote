@@ -182,6 +182,7 @@
   }
   
   .name {
+    font-weight: bold;
     margin-bottom: 5px;
   }
 
@@ -203,6 +204,7 @@
   @media screen and (max-width: 375px) {
     .name {
       margin-bottom: 0;
+      font-size: 13px;
     }
     .place {
       font-size: 12px;
